@@ -582,22 +582,6 @@ color:white;
      <string>9</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_22">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>200</y>
-      <width>32</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:white;</string>
-    </property>
-    <property name="text">
-     <string>Turn:</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="start_game">
     <property name="geometry">
      <rect>
@@ -721,7 +705,6 @@ color: white;</string>
    <zorder>line_3</zorder>
    <zorder>label_10</zorder>
    <zorder>turn</zorder>
-   <zorder>label_22</zorder>
    <zorder>label_13</zorder>
    <zorder>label_16</zorder>
    <zorder>label_19</zorder>
