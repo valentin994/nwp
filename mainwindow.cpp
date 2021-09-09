@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <unordered_set>
-
+#include <QApplication>
+#include <QProcess>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -111,12 +112,11 @@ void MainWindow::winning_system() {
 
 
 void MainWindow::start_turn() {
-    ui->turn->setText(QString(turn_system));
+
 }
 
 void MainWindow::game_start() {
     turn_system = 'X';
-    ui->label_10->setText("Izaberi Broj");
     emit set_turn();
     ui->start_game->hide();
 }
@@ -125,18 +125,37 @@ void MainWindow::check_win() {
     winning_system();
 }
 
+
 // Prikazi Pobjednika
 void MainWindow::winner() {
 if (turn_system == 'X') {
-  ui->winner->setText("O Pobjedio! Ponovo pokrenite za novu partiju.");
+  ui->winner->setText("O pobijedio! Kliknite na ponovo pokreni za novu partiju");
     }
 if (turn_system == 'O') {
-  ui->winner->setText("X WON! Pobjedio! Ponovo pokrenite za novu partiju.");
+  ui->winner->setText("X pobijedio! Kliknite na ponovo pokreni za novu partiju");
     }
+ui->pushButton_2->setDisabled(true);
+ui->pushButton_3->setDisabled(true);
+ui->pushButton_4->setDisabled(true);
+ui->pushButton_5->setDisabled(true);
+ui->pushButton_6->setDisabled(true);
+ui->pushButton_7->setDisabled(true);
+ui->pushButton_8->setDisabled(true);
+ui->pushButton_9->setDisabled(true);
+ui->pushButton_10->setDisabled(true);
 }
 
 void MainWindow::tie_game() {
-   ui->winner->setText("Nerijeseno! Ponovo pokrenite za novu partiju.");
+   ui->winner->setText("Neriješeno! Kliknite na ponovo pokreni za novu partiju.");
+   ui->pushButton_2->setDisabled(true);
+   ui->pushButton_3->setDisabled(true);
+   ui->pushButton_4->setDisabled(true);
+   ui->pushButton_5->setDisabled(true);
+   ui->pushButton_6->setDisabled(true);
+   ui->pushButton_7->setDisabled(true);
+   ui->pushButton_8->setDisabled(true);
+   ui->pushButton_9->setDisabled(true);
+   ui->pushButton_10->setDisabled(true);
 }
 
 
@@ -359,7 +378,7 @@ void MainWindow::set8(){
 
 void MainWindow::set9(){
     if ( turn_system == 'X') {
-    ui->label_9->setPixmap(QPixmap(":/O.png"));
+    ui->label_9->setPixmap(QPixmap(":/X.png"));
     turn_system = 'O';
     emit set_turn();
 
@@ -387,5 +406,12 @@ void MainWindow::set9(){
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::on_restart_clicked()
+{
+    qApp->quit();
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
 }
 

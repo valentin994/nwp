@@ -45,6 +45,11 @@ signals:
     void set_win();
     void set_tie();
 
+private slots:
+    void on_label_9_linkActivated(const QString &link);
+
+    void on_restart_clicked();
+
 private:
     Ui::MainWindow *ui;
 
