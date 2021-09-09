@@ -129,10 +129,10 @@ void MainWindow::check_win() {
 // Prikazi Pobjednika
 void MainWindow::winner() {
 if (turn_system == 'X') {
-  ui->winner->setText("O pobijedio! Kliknite na ponovo pokreni za novu partiju");
+  ui->winner->setText("O pobijedio! Kliknite na ponovo pokreni za novu partiju.");
     }
 if (turn_system == 'O') {
-  ui->winner->setText("X pobijedio! Kliknite na ponovo pokreni za novu partiju");
+  ui->winner->setText("X pobijedio! Kliknite na ponovo pokreni za novu partiju.");
     }
 ui->pushButton_2->setDisabled(true);
 ui->pushButton_3->setDisabled(true);
